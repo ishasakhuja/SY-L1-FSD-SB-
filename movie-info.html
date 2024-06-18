@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Info</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .movie-details {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-in-out;
+        }
+        .movie-details img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto 20px;
+        }
+        .movie-details h2 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        .movie-details p {
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="images/logo.jpg" alt="Logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index1.html">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="movie-details" id="movie-details">
+            <!-- Movie details will be populated here -->
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h3>About Us</h3>
+                    <p>We are a movie catalog website dedicated to bringing you the best movie recommendations and reviews.</p>
+                </div>
+                <div class="footer-social">
+                    <h3>Follow Us</h3>
+                    <ul>
+                        <li><a href="https://facebook.com" target="_blank"><img src="images/download.png" alt="Facebook"></a></li>
+                        <li><a href="https://twitter.com" target="_blank"><img src="images/download (1).png" alt="Twitter"></a></li>
+                        <li><a href="https://instagram.com" target="_blank"><img src="images/download.jpg" alt="Instagram"></a></li>
+                        <li><a href="https://linkedin.com" target="_blank"><img src="images/download (2).png" alt="LinkedIn"></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Movie Catalog. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Function to get query parameters
+        function getQueryParams() {
+            const params = {};
+            window.location.search.substring(1).split('&').forEach(function(param) {
+                const [key, value] = param.split('=');
+                params[key] = decodeURIComponent(value);
+            });
+            return params;
+        }
+
+        // Populate movie details
+        document.addEventListener('DOMContentLoaded', function() {
+            const params = getQueryParams();
+            const movieDetails = document.getElementById('movie-details');
+            
+            const movies = {
+                "1": {
+                    title: "Oppenheimer",
+                    poster: "Images/Oppenheimer.avif",
+                    releaseYear: "2023",
+                    genre: "Action",
+                    director: "Christopher Nolan",
+                    cast: "Cillian Murphy, Emily Blunt, Matt Damon",
+                    rating: "8.7/10",
+                    synopsis: "The story of American scientist J. Robert Oppenheimer and his role in the development of the atomic bomb."
+                },
+                "2": {
+                    title: "La La Land",
+                    poster: "Images/lalaland.jpg",
+                    releaseYear: "2016",
+                    genre: "Action",
+                    director: "Damien Chazelle",
+                    cast: "Ryan Gosling, Emma Stone, Rosemarie DeWitt",
+                    rating: "8.0/10",
+                    synopsis: "While navigating their careers in Los Angeles, a pianist and an actress fall in love while attempting to reconcile their aspirations for the future."
+                },
+                "3": {
+                    title: "The Dark Knight",
+                    poster: "Images/darkknight.jpeg",
+                    releaseYear: "2008",
+                    genre: "Action",
+                    director: "Christopher Nolan",
+                    cast: "Christian Bale, Heath Ledger, Aaron Eckhart",
+                    rating: "9.0/10",
+                    synopsis: "When the menace known as The Joker emerges from his mysterious past, he wreaks havoc and chaos on the people of Gotham."
+                },
+                "4": {
+                    title: "Guardians of the Galaxy",
+                    poster: "Images/gotg.jpeg",
+                    releaseYear: "2014",
+                    genre: "Comedy",
+                    director: "James Gunn",
+                    cast: "Chris Pratt, Zoe Saldana, Dave Bautista",
+                    rating: "8.0/10",
+                    synopsis: "A group of intergalactic criminals must pull together to stop a fanatical warrior with plans to purge the universe."
+                },
+                "5": {
+                    title: "John Wick",
+                    poster: "Images/jW.jpeg",
+                    releaseYear: "2017",
+                    genre: "Comedy",
+                    director: "Chad Stahelski",
+                    cast: "Keanu Reeves, Michael Nyqvist, Alfie Allen",
+                    rating: "7.4/10",
+                    synopsis: "An ex-hit-man comes out of retirement to track down the gangsters that killed his dog and took everything from him."
+                },
+                "6": {
+                    title: "Joker",
+                    poster: "Images/joker.webp",
+                    releaseYear: "2019",
+                    genre: "Comedy",
+                    director: "Todd Phillips",
+                    cast: "Joaquin Phoenix, Robert De Niro, Zazie Beetz",
+                    rating: "8.4/10",
+                    synopsis: "In Gotham City, mentally troubled comedian Arthur Fleck is disregarded and mistreated by society. He then embarks on a downward spiral of revolution and bloody crime."
+                },
+                "7": {
+                    title: "The Matrix",
+                    poster: "Images/tM.webp",
+                    releaseYear: "1999",
+                    genre: "Action",
+                    director: "Lana Wachowski, Lilly Wachowski",
+                    cast: "Keanu Reeves, Laurence Fishburne, Carrie-Anne Moss",
+                    rating: "8.7/10",
+                    synopsis: "A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers."
+                },
+                "8": {
+                    title: "Wakanda Forever",
+                    poster: "Images/WF.jpg",
+                    releaseYear: "2022",
+                    genre: "Action",
+                    director: "Ryan Coogler",
+                    cast: "Letitia Wright, Lupita Nyong'o, Danai Gurira",
+                    rating: "7.3/10",
+                    synopsis: "The leaders of the kingdom of Wakanda fight to protect their nation from invading forces in the wake of King T'Challa's death."
+                },
+                "9": {
+                    title: "Onward",
+                    poster: "Images/onward.jpg",
+                    releaseYear: "2020",
+                    genre: "Drama",
+                    director: "Dan Scanlon",
+                    cast: "Tom Holland, Chris Pratt, Julia Louis-Dreyfus",
+                    rating: "7.4/10",
+                    synopsis: "Two elven brothers embark on a quest to bring their father back for one day."
+                },
+                "10": {
+                    title: "Barbie in the 12 Dancing Princesses",
+                    poster: "Images/Barbie.jpg",
+                    releaseYear: "2006",
+                    genre: "Comedy",
+                    director: "Greg Richardson",
+                    cast: "Kelly Sheridan, Catherine O'Hara, Nicole Oliver",
+                    rating: "6.8/10",
+                    synopsis: "Barbie stars as Genevieve, one of twelve princesses who share a passion for dancing and discover a secret entrance to an amazing, magical world."
+                }
+            };
+
+
+            const movie = movies[params.id];
+            if (movie) {
+                movieDetails.innerHTML = `
+                    <img src="${movie.poster}" alt="${movie.title}">
+                    <h2>${movie.title}</h2>
+                    <p><strong>Release Year:</strong> ${movie.releaseYear}</p>
+                    <p><strong>Genre:</strong> ${movie.genre}</p>
+                    <p><strong>Director:</strong> ${movie.director}</p>
+                    <p><strong>Cast:</strong> ${movie.cast}</p>
+                    <p><strong>Rating:</strong> ${movie.rating}</p>
+                    <p><strong>Synopsis:</strong> ${movie.synopsis}</p>
+                `;
+            } else {
+                movieDetails.innerHTML = '<p>Movie not found!</p>';
+            }
+        });
+    </script>
+</body>
+</html>

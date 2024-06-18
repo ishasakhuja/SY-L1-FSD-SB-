@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="images/logo.avif" alt="Logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="search-bar">
+            <input type="text" id="search-input" placeholder="Search movies">
+            <select id="genre-filter">
+                <option value="">All Genres</option>
+                <option value="action">Action</option>
+                <option value="comedy">Comedy</option>
+                <option value="drama">Drama</option>
+                <option value="horror">Horror</option>
+            </select>
+            <button onclick="searchMovies()">Search</button>
+        </div>
+        <div class="movie-grid" id="movie-grid">
+            <div class="movie-info" data-genre="action" data-id="1">
+                <img src="Images/Oppenheimer.avif" alt="Oppenheimer">
+                <h2>Oppenheimer</h2>
+                <p>Released in: 2023</p>
+            </div>
+            <div class="movie-info" data-genre="action" data-id="2">
+                <img src="Images/lalaland.jpg" alt="La La Land">
+                <h2>La La Land</h2>
+                <p>Released in: 2016</p>
+            </div>
+            <div class="movie-info" data-genre="action" data-id="3">
+                <img src="Images/darkknight.jpeg" alt="The Dark Knight">
+                <h2>Dark Knight</h2>
+                <p>Released in: 2008</p>
+            </div>
+            <div class="movie-info" data-genre="comedy" data-id="4">
+                <img src="Images/gotg.jpeg" alt="Guardians of the Galaxy">
+                <h2>Guardians of the Galaxy</h2>
+                <p>Released in: 2014</p>
+            </div>
+            <div class="movie-info" data-genre="comedy" data-id="5">
+                <img src="Images/jW.jpeg" alt="John Wick">
+                <h2>John Wick</h2>
+                <p>Released in: 2017</p>
+            </div>
+            <div class="movie-info" data-genre="comedy" data-id="6">
+                <img src="Images/joker.webp" alt="Joker">
+                <h2>Joker</h2>
+                <p>Released in: 2019</p>
+            </div>
+            <div class="movie-info" data-genre="action" data-id="7">
+                <img src="Images/tM.webp" alt="The Matrix">
+                <h2>The Matrix</h2>
+                <p>Released in: 1999</p>
+            </div>
+            <div class="movie-info" data-genre="action" data-id="8">
+                <img src="Images/WF.jpg" alt="Wakanda Forever">
+                <h2>Wakanda Forever</h2>
+                <p>Released in: 2022</p>
+            </div>
+            <div class="movie-info" data-genre="drama" data-id="9">
+                <img src="Images/onward.jpg" alt="Onward">
+                <h2>Onward</h2>
+                <p>Released in: 2020</p>
+            </div>
+            <div class="movie-info" data-genre="comedy" data-id="10">
+                <img src="Images/Barbie.jpg" alt="Barbie">
+                <h2>Barbie in the 12 Dancing Princesses</h2>
+                <p>Released in: 2006</p>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h3>About Us</h3>
+                    <p>We are a movie catalog website dedicated to bringing you the best movie recommendations and reviews.</p>
+                </div>
+                <div class="footer-social">
+                    <h3>Follow Us</h3>
+                    <ul>
+                        <li><a href="https://facebook.com" target="_blank"><img src="images/Facebook.png" alt="Facebook"></a></li>
+                        <li><a href="https://twitter.com" target="_blank"><img src="images/twitter.png" alt="Twitter"></a></li>
+                        <li><a href="https://instagram.com" target="_blank"><img src="images/instagram.png" alt="Instagram"></a></li>
+                        <li><a href="https://linkedin.com" target="_blank"><img src="images/Linkedin.png" alt="LinkedIn"></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Movie Catalog. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        document.querySelectorAll('.movie-info').forEach(movie => {
+            movie.addEventListener('click', function() {
+                const movieId = this.getAttribute('data-id');
+                window.open(`movie-info.html?id=${movieId}`, '_blank');
+            });
+        });
+    </script>
+    
+</body>
+</html>
